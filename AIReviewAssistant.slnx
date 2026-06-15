@@ -2,6 +2,7 @@
   <Project Path="AIReviewAssistant.Api/AIReviewAssistant.Api.csproj" Id="dd326c34-e4f9-483b-bd93-10a0c4973e96" />
   <Project Path="AIReviewAssistant.Application/AIReviewAssistant.Application.csproj" Id="5e02bff9-9a48-43a7-8e5d-16b1dd680a76" />
   <Project Path="AIReviewAssistant.Contracts/AIReviewAssistant.Contracts.csproj" Id="ea5226ef-eb8f-4663-a8f1-152eb902aa89" />
+  <Project Path="AIReviewAssistant.Domain.Tests/AIReviewAssistant.Domain.Tests.csproj" />
   <Project Path="AIReviewAssistant.Domain/AIReviewAssistant.Domain.csproj" Id="d6425cf7-23cd-4b1a-b61c-6207a244bebc" />
   <Project Path="AIReviewAssistant.Infrastructure/AIReviewAssistant.Infrastructure.csproj" Id="d8187016-6002-41a8-bf15-7b7c90b7040a" />
 </Solution>
