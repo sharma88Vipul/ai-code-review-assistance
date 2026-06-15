@@ -36,6 +36,14 @@ namespace AIReviewAssistant.Domain
 
         public void Complete(int filesAnalyzed, int totalComments)
         {
+            EnsureRunning();
+
+            if (filesAnalyzed < 0)
+                throw new ArgumentOutOfRangeException(nameof(filesAnalyzed));
+
+            if (totalComments < 0)
+                throw new ArgumentOutOfRangeException(nameof(totalComments));
+
             Status = ReviewStatus.Completed;
             FilesAnalyzed = filesAnalyzed;
             TotalComments = totalComments;
@@ -44,9 +52,20 @@ namespace AIReviewAssistant.Domain
 
         public void Fail(string errorMessage)
         {
+            EnsureRunning();
+
+            if (string.IsNullOrWhiteSpace(errorMessage))
+                throw new ArgumentException("Error message is required.", nameof(errorMessage));
+
             Status = ReviewStatus.Failed;
-            ErrorMessage = errorMessage;
+            ErrorMessage = errorMessage.Trim();
             CompletedAtUtc = DateTime.UtcNow;
+        }
+
+        private void EnsureRunning()
+        {
+            if (Status != ReviewStatus.Running)
+                throw new InvalidOperationException("Only running review sessions can be finalized.");
         }
     }
 }
